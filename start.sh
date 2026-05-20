@@ -16,11 +16,20 @@ lightning:
   api_key: "${BLINK_API_KEY}"
 
 services:
-  - name: "btc-tools-directory-v2"
+  - name: "btc-tools-directory-v3"
     backend: "https://btc-tools-api.onrender.com"
     paths:
       - pattern: "/tools"
         price_sats: 10
+        macaroon_cap: 100
+        expiry_seconds: 3600
+    use_hold_invoice: false
+
+  - name: "africa-bitcoin-news-v2"
+    backend: "https://africa-bitcoin-news-api.onrender.com"
+    paths:
+      - pattern: "/headlines"
+        price_sats: 15
         macaroon_cap: 100
         expiry_seconds: 3600
     use_hold_invoice: false
